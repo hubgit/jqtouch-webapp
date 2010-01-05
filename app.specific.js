@@ -10,6 +10,8 @@ var feed = {
       return false;
     }
     
+    $("#items").html("<li id='loading'><img src='images/loading.gif'/></li>");
+    
     $.getJSON("http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&scoring=h&callback=?&q=" + encodeURIComponent(app.settings.feed) + "&num=" + app.settings.count, feed.showItems);
   },
 
@@ -19,9 +21,10 @@ var feed = {
       return false; 
     }
     
+    $("#items").empty();
+    
     $("#title").text(data.responseData.feed.title);
         
-    $("#items").empty();  
     for (var i in data.responseData.feed.entries)     
       feed.showItem(data.responseData.feed.entries[i]);
   },

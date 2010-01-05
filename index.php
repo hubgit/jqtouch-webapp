@@ -29,7 +29,7 @@
     </div>
 
     <ul id="items">
-      <li id="loading"><img src="images/loading.gif"/></li>
+      <li/>
     </ul>
   </div>
 
