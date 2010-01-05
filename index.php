@@ -24,6 +24,7 @@
   
   <div id="home">
     <div class="toolbar">
+      <h1 id="title"></h1>
       <a class="button" id="settingsButton" href="#settings">Settings</a> 
     </div>
 
