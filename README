@@ -7,15 +7,15 @@ app.js: handles saving and loading settings, and the main application views
 db.js: database functions
 index.php: defines the HTML structure, includes JS and CSS files
 jqtouch/: from http://code.google.com/p/jqtouch/
-manifest.php: defines which files should be included in this application's cache for offline use
+manifest.php: lists which files should be included in this application's cache for offline use.
 
 application-specific files
 ==========================
 
 app.specific.js: javascript code specific to this application. Must define app.main - the function that will be run when the home section is loaded.
-config.php: some preferences (only the jQTouch theme at the moment).
+config.php: some variables.
 
 images/: icon, startup and loading images
 
-manifest.specific.php: any application-specific files that need to be included in the manifest
+manifest.specific.php: lists any application-specific files that need to be included in manifest.php
 settings.php: the settings page, imported into index.php
