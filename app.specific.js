@@ -1,5 +1,5 @@
 app.settings = {
-  feed: "", // feed to load
+  feed: "http://hublog.hubmed.org/index.atom", // feed to load
   count: "100" // number of items to load
 };
 
@@ -18,6 +18,8 @@ var feed = {
       $("#loading").text("Error loading feed");
       return false; 
     }
+    
+    $("#title").text(data.responseData.feed.title);
         
     $("#items").empty();  
     for (var i in data.responseData.feed.entries)     
