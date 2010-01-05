@@ -1,6 +1,6 @@
 app.settings = {
   feed: "http://hublog.hubmed.org/index.atom", // feed to load
-  count: "100" // number of items to load
+  count: "20" // number of items to load
 };
 
 var feed = {
