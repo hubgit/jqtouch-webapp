@@ -6,6 +6,9 @@ var DB = function(name, version, description, size){
   
   self.db = openDatabase(name, version, description, size);
   
+  if (!self.db)
+    return false;
+  
   self.query = function(sql, params, success, error){
     if (!params)
       params = [];
@@ -18,12 +21,12 @@ var DB = function(name, version, description, size){
 
     self.log(sql); self.log(params);
 
-    this.db.transaction(function(tx) {
+    self.db.transaction(function(tx) {
       tx.executeSql(sql, params, function(tx, result){ success(result); }, function(tx, result){ error(result); });
     });
   };
   
   self.log = function(result){
     //console.log(result);
-  }
-}
+  };
+};

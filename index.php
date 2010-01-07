@@ -1,9 +1,14 @@
 <?php require dirname(__FILE__) . '/config.php'; ?>
+<?php header('Content-Type: text/html;charset=utf-8'); ?>
 <!DOCTYPE html>
 <html manifest="manifest.php">
 <head>
   <meta http-equiv="content-type" value="text/html;charset=utf-8">
+  <meta http-equiv="content-script-type" content="text/javascript">
+    
   <title><?php print htmlspecialchars($title); ?></title>
+  
+  <link rel="webapp" href="webapp/feedreader.webapp" title="FeedReader Web App (for Prism)">
 
   <link rel="stylesheet" href="jqtouch/jqtouch/jqtouch.css"/>
   <link rel="stylesheet" href="<?php print $theme . '/theme.css'; ?>"/>

@@ -30,7 +30,7 @@ var feed = {
   },
 
   showItem: function(item){    
-    var a = $("<a rel='external'/>")
+    var a = $("<a rel='external' target='_content'/>")
       .attr("href", item.link)
       .append($("<span/>").addClass("title").text(item.title));
     

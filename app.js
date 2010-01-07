@@ -2,13 +2,18 @@ var jqt = $.jQTouch({
   icon: "images/icon.png",
   startupScreen: "images/startup.png",
   statusBar: "black-translucent",
-  fullscreen: false
+  fullscreen: true
 });
 
 var app = {
   db: null,
   
   init: function(){
+    if ("platform" in window) { // running in Prism
+      window.platform.icon().showNotification("Prism", "It's running in Prism!", null);
+      window.platform.icon().badgeText = "Yes!";
+    }
+       
     if (typeof window.openDatabase != "undefined")
       app.setupDatabase();
     
@@ -19,7 +24,11 @@ var app = {
   },
   
   setupDatabase: function(){      
-    app.db = new DB(app.dbName, '1.0', '', 1024*1024); // 1MB database
+    app.db = new DB(app.dbName, '1.0', 'Settings database', 1024*1024); // 1MB database
+    if (typeof app.db.query == "undefined"){
+      app.db = null;
+      return false; 
+    }
     
     //app.db.query("DROP TABLE settings");
     //app.db.query("DELETE FROM settings");
@@ -38,6 +47,12 @@ var app = {
   
 
   loadSettings: function(field){
+    if (typeof window.localStorage == "undefined"){
+      alert("To store settings, you'll need a browser that supports HTML5");
+      app.main();
+      return false;
+    }
+    
     if (app.db){
       app.db.query("SELECT * FROM settings", [], function(result){ 
         for (var i = 0; i < result.rows.length; i++){
