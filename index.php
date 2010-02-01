@@ -8,7 +8,7 @@
     
   <title><?php print htmlspecialchars($title); ?></title>
   
-  <link rel="webapp" href="webapp/feedreader.webapp" title="FeedReader Web App (for Prism)">
+  <link rel="webapp" href="webapp/feedreader.webapp" title="<?php print htmlspecialchars($title); ?>">
 
   <link rel="stylesheet" href="jqtouch/jqtouch/jqtouch.css"/>
   <link rel="stylesheet" href="<?php print $theme . '/theme.css'; ?>"/>
